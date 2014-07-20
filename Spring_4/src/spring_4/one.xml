@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+">
+    
+    <bean id ="small1" class="spring_4.small">
+        <property name="a" >
+            <map>
+                <entry key="x" value="10"></entry>
+                <entry key="y" value="20"></entry>
+            </map>
+        </property>
+       
+    </bean>
+    
+    <bean id ="small2" class="spring_4.small">
+        <property name="a">
+        <map>
+                <entry key="x" value="30"></entry>
+                <entry key="y" value="40"></entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id ="pt2" class = "spring_4.point" scope="prototype">
+        <property name="a" >
+            <map>
+                <entry key="x" value="10"></entry>
+                <entry key="y" value="20"></entry>
+                
+            </map>
+        </property>
+    </bean>
+    <bean id ="pt3" class = "spring_4.point" scope="prototype">
+        <property name="a" >
+            <map>
+                <entry key="x" value="30"></entry>
+                <entry key="y" value="40"></entry>
+                
+            </map>
+        </property>
+    </bean>
+   <bean id ="seg1" class = "spring_4.segment" scope="prototype">
+        <property name="p1" ref = "pt2"></property>
+         <property name="p2" ref = "pt3"></property>
+</bean>
+   
+
+    <bean id="pt1" class = "spring_4.point" >
+        <property name= "a">
+            <map>
+                <entry key="x" value-ref="small1"></entry>
+                <entry key="y" value-ref="small1"></entry>
+                
+            </map>
+        </property>
+        <property name="str" value = "Sanket Nayak"></property>
+    </bean>
+</beans>
