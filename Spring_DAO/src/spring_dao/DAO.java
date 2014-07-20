@@ -90,30 +90,30 @@ public class DAO <T>
     public synchronized  ArrayList<Object> read() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException
     {     try
         {
-            logger.info("Read started");
-          ArrayList<String> col_names = new ArrayList<String>();
-          ArrayList<String> col_types = new ArrayList<String>();
-          
-          Object obj = c.newInstance();
-          
-          
-          Statement st = conn.createStatement();
-          
-          ResultSet rs = st.executeQuery("select * from "+c.getSimpleName());
-          ResultSetMetaData rsmd = rs.getMetaData();
-          int count = rsmd.getColumnCount();
-          
-          
-          for(int i=1;i<=count;i++)
-          {
-              col_names.add(rsmd.getColumnName(i));
-              col_types.add(rsmd.getColumnTypeName(i));
-          }
-        
-          
-          while(rs.next())
-          {
-              ArrayList<Object> data = new ArrayList<Object>  ();
+              logger.info("Read started");
+              ArrayList<String> col_names = new ArrayList<String>();
+              ArrayList<String> col_types = new ArrayList<String>();
+              
+              Object obj = c.newInstance();
+              
+              
+              Statement st = conn.createStatement();
+              
+              ResultSet rs = st.executeQuery("select * from "+c.getSimpleName());
+              ResultSetMetaData rsmd = rs.getMetaData();
+              int count = rsmd.getColumnCount();
+              
+              
+              for(int i=1;i<=count;i++)
+              {
+                  col_names.add(rsmd.getColumnName(i));
+                  col_types.add(rsmd.getColumnTypeName(i));
+              }
+            
+              
+              while(rs.next())
+              {
+                  ArrayList<Object> data = new ArrayList<Object>  ();
               
               
               int i=0;
@@ -139,7 +139,7 @@ public class DAO <T>
               pa.add((c.getConstructor(ArrayList.class).newInstance(data)));
           }
                  
-          return pa;
+              return pa;
         }finally { logger.info("Read finished");}
     
     }
@@ -154,29 +154,29 @@ public class DAO <T>
         {
         
             logger.info("Insert execution started");
-        ArrayList<Object> data = obj.get_param();
-        
-        
-                    
-        ArrayList<String> col_names = new ArrayList<String>();
-        ArrayList<String> col_types = new ArrayList<String>();
-        
-        conn = database_conn();
-        
-        PreparedStatement ps = conn.prepareStatement(prop.getProperty(c.getSimpleName()+"_update"));
-        
-        Statement st = conn.createStatement();
-        
-          ResultSet rs = st.executeQuery("select * from "+c.getSimpleName());
-          ResultSetMetaData rsmd = rs.getMetaData();
-          int count = rsmd.getColumnCount();
-          
-          
-          for(int i=1;i<=count;i++)
-          {
-              col_names.add(rsmd.getColumnName(i));
-              col_types.add(rsmd.getColumnTypeName(i));
-          }
+            ArrayList<Object> data = obj.get_param();
+            
+            
+                        
+            ArrayList<String> col_names = new ArrayList<String>();
+            ArrayList<String> col_types = new ArrayList<String>();
+            
+            conn = database_conn();
+            
+            PreparedStatement ps = conn.prepareStatement(prop.getProperty(c.getSimpleName()+"_update"));
+            
+            Statement st = conn.createStatement();
+            
+              ResultSet rs = st.executeQuery("select * from "+c.getSimpleName());
+              ResultSetMetaData rsmd = rs.getMetaData();
+              int count = rsmd.getColumnCount();
+              
+              
+              for(int i=1;i<=count;i++)
+              {
+                  col_names.add(rsmd.getColumnName(i));
+                  col_types.add(rsmd.getColumnTypeName(i));
+              }
           
         while(rs.next())
         {
