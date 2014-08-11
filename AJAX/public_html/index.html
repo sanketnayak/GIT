@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script src="js/libs/jquery/jquery.js"></script>
+        <script>
+
+            function f1 () {
+                if ($( "#sel1 option:selected" ).text() === "Category 1") {
+                    $.ajax({ url: "category1.jsp", success: function(data){
+                            $('#sel2').html(data);
+                    }});
+                }
+                if ($( "#sel1 option:selected" ).text() === "Category 2") {
+                    $.ajax({ url: "category2.jsp", success: function(data){
+                            $('#sel2').html(data);
+                    }});
+                }
+                if ($( "#sel1 option:selected" ).text() === "Category 3") {
+                    $.ajax({ url: "category3.jsp", success: function(data){
+                            $('#sel2').html(data);
+                    }});
+                }
+        }
+        </script>
+    </head>
+    <body>
+        <select id="sel1" onchange="f1()">
+            <option value="null"></option>
+            <option value="Category 1">Category 1</option>
+            <option value="Category 2">Category 2</option>
+            <option value="Category 3">Category 3</option>
+        </select>
+        
+        <select id="sel2">
+            
+        </select>
+        
+        
+    </body>
+</html>

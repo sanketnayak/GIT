@@ -1,0 +1,32 @@
+
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Demo</title>
+    <script src="js/libs/jquery/jquery.js"></script>
+</head>
+<body>
+    
+    <a href="http://jquery.com/">jQuery</a>
+    <script>
+ 
+    
+
+$( "a" ).click(function( event ) {
+ 
+    event.preventDefault();
+ 
+    $( this ).hide( "slow" );
+ 
+});
+
+$.get( "index.html", myCallBack);
+function myCallBack () {
+    alert("callback working");
+}
+ 
+    </script>
+</body>
+</html>

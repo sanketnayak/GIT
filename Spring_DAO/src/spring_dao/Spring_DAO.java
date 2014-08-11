@@ -7,6 +7,7 @@
 package spring_dao;
 
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 
@@ -20,7 +21,7 @@ public class Spring_DAO
     {
        
         DAO<point> dao = new DAO<point> (point.class) ;
-        point p1 = new point(3,5,6);
+        point p1 = new point(3,5,6);             
         dao.insert(p1);
         ArrayList<Object> px = dao.read();
         System.out.println(px);
