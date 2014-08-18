@@ -36,11 +36,10 @@ public class validation extends HttpServlet {
             throws ServletException, IOException {
         
         UserForm form = new UserForm(request.getParameter("username"), request.getParameter("password"));
-        
-        if(form.validate()) { 
-            
-            HttpSession s = request.getSession(true);
+        HttpSession s = request.getSession(true);
            s.setAttribute("form", form);
+        if(form.validate()) { 
+
            RequestDispatcher rd = request.getRequestDispatcher("frontPage.jsp");
            
            rd.forward(request, response);            
