@@ -20,7 +20,7 @@ public class Form1 extends org.apache.struts.action.ActionForm {
     
     private String userName;
     
-    private String pwd;;
+    private String pwd;
     
     private int x;
     

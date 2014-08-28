@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="hibernatemapping.User" table="User">
+     <id name="uid" column="uid"></id>
+     <property name="name" column="name"/>
+     <property name="sname" column="sname"/>
+     <component name="hAdd" class="hibernatemapping.HAddress">
+         <property name="hStreet" column="hStreet"/>
+         <property name="hCity" column="hCity"/>
+     </component>
+     <component name="wAdd" class="hibernatemapping.WAddress">
+         <property name="wStreet" column="wStreet"/>
+         <property name="wCity" column="wCity"/>
+     </component>
+     <set name = "nums" table="telno">
+        <key column="uid"/>
+        <composite-element class="hibernatemapping.MobileDetails"> 
+           <property name="name" column="name"/>
+           <property name="num" column="num"/>
+        </composite-element>
+     </set>
+  </class>
+</hibernate-mapping>

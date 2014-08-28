@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    
+<!-- Strategy one : Union-subclass method !-->
+  <class abstract="true" name="UnionSubclass.C1">
+    <id column="id" name="id"/>
+    <property column="a" name="a"/>
+    <property column="b" name="b"/>
+    <union-subclass name="UnionSubclass.C2" table="C2">
+      <property column="c" name="c"/>
+      <property column="d" name="d"/>
+    </union-subclass>
+    <union-subclass name="UnionSubclass.C3" table="C3">
+      <property column="e" name="e"/>
+      <property column="f" name="f"/>
+    </union-subclass>
+  </class>
+  
+<!-- Strategy two : One table per class hierarchy !-->
+  <class table ="E" name="OneTablePerClassHierarchy.E1">
+    <id column="id" name="id"/>
+    <discriminator column="disc" type="string"/>
+    <property column="a" name="a"/>
+    <property column="b" name="b"/>
+    <subclass name="OneTablePerClassHierarchy.E2" discriminator-value="E2">
+        <property column="c" name="c"/>
+        <property column="d" name="d"/>
+    </subclass>
+    <subclass name="OneTablePerClassHierarchy.E3" discriminator-value="E3">
+        <property column="e" name="e"/>
+        <property column="f" name="f"/>
+    </subclass>
+  </class>
+  
+<!-- Strategy three : Table per entity !-->
+  <class table="D1" name="TablePerEntity.D1">
+      <id name="id" column="id"/>
+      <property column="a" name="a"/>
+      <property column="b" name="b"/>
+      <joined-subclass name="TablePerEntity.D2" table="D2">
+          <key column="id"/>
+          <property column="c" name="c"/>
+          <property column="d" name="d"/>
+      </joined-subclass>
+      <joined-subclass name="TablePerEntity.D3" table="D3">
+          <key column="id"/>
+          <property column="e" name="e"/>
+          <property column="f" name="f"/>
+      </joined-subclass>
+  </class>
+  
+    
+</hibernate-mapping>

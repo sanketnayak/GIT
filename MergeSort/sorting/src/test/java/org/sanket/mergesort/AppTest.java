@@ -3,7 +3,7 @@ package org.sanket.mergesort;
 import org.junit.Assert;
 import org.junit.Test;
 import static org.mockito.Mockito.verify;
-import static org.sanket.mergesort.App.sort;
+import static org.sanket.sort.MergeSort.mergeSort;
 
 
 /**
@@ -17,7 +17,7 @@ public class AppTest
         
         int []a = {5,3,6,2,7};
         int []b = {2,3,5,6,7};
-        sort(a);
+        mergeSort(a);
         
         
         

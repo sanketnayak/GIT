@@ -7,4 +7,5 @@
       <property name="y" column="y"/>
       
   </class>
+  
 </hibernate-mapping>

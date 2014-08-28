@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.sanket.mergesort</groupId>
-  <artifactId>mergesort</artifactId>
+  <artifactId>sorting</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
 
-  <name>mergesort</name>
+  <name>sorting</name>
   <url>http://maven.apache.org</url>
 
   <properties>
