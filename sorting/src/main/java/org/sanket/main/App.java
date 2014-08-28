@@ -3,6 +3,7 @@ package org.sanket.main;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import static org.sanket.sort.InsertionSort.insertionSort;
 import static org.sanket.sort.MergeSort.mergeSort;
 import static org.sanket.sort.SelectionSort.selectionSort;
 
@@ -33,7 +34,7 @@ public class App
             a[i] = Integer.parseInt(br.readLine());          
         }
         
-        selectionSort(a);
+        insertionSort(a);
         
         System.out.println("");
         System.out.println("");
