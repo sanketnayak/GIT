@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<TaskScheduler>
+
+<Vms>
+    <Vm>
+        <mips>150</mips>
+        <bw>300</bw>
+    </Vm>
+    <Vm>
+        <mips>300</mips>
+        <bw>15</bw>
+    </Vm>
+</Vms>
+
+<Tasks>
+    <Task>
+        <mi>256</mi>
+        <mb>88</mb>
+    </Task>
+    <Task>
+        <mi>35</mi>
+        <mb>31</mb>
+    </Task>
+    <Task>
+        <mi>327</mi>
+        <mb>96</mb>
+    </Task>
+    <Task>
+        <mi>210</mi>
+        <mb>590</mb>
+    </Task>
+
+</Tasks>
+
+</TaskScheduler>
